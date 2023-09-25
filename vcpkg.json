@@ -10,5 +10,22 @@
   "dependencies": [
     "nyu-cmake",
     "catch2"
-  ]
+  ],
+  "vcpkg-configuration": {
+    "default-registry": {
+      "kind": "git",
+      "baseline": "5a38b5ec0eee3d1a1a6faab5e944617fee2697cf",
+      "repository": "https://github.com/microsoft/vcpkg.git"
+    },
+    "registries": [
+      {
+        "kind": "git",
+        "baseline": "78f50d1f7f6f21a9fb28b9a7a3cab021e600830c",
+        "repository": "https://github.com/NYU-Processor-Design/nyu-registry.git",
+        "packages": [
+          "nyu-cmake"
+        ]
+      }
+    ]
+  }
 }

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.25)
+cmake_minimum_required(VERSION 3.27)
 
 if(NOT DEFINED CMAKE_TOOLCHAIN_FILE)
   include(FetchContent)
@@ -13,7 +13,12 @@ if(NOT DEFINED CMAKE_TOOLCHAIN_FILE)
     ${vcpkg_SOURCE_DIR}/scripts/buildsystems/vcpkg.cmake
     CACHE FILEPATH "Vcpkg toolchain file"
   )
+  set(VCPKG_ROOT_DIR ${vcpkg_SOURCE_DIR} CACHE PATH "Vcpkg Root Directory")
 endif()
+
+add_custom_target(UpdateVcpkgBaseline
+  ${VCPKG_ROOT_DIR}/vcpkg x-update-baseline
+)
 
 project(week-two-lab)
 
