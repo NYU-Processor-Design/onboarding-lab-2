@@ -21,4 +21,11 @@ module Exercise4 (
     output logic [7:0] out
 );
 
+always_comb begin
+  if (cs==1'b0)
+    out = 8'b0;
+  else
+    out = (sel==0)?alpha:(sel==1)?beta:(sel==2)?gamma:8'b0;
+end
+
 endmodule

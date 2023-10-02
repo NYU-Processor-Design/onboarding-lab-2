@@ -13,4 +13,12 @@ module Exercise2 (
     output logic [15:0] out
 );
 
+wire shift;
+assign shift = ((out[15]^out[13])^out[12])^out[10];
+
+always @(posedge clk)
+  if(nReset==1)
+    out <= init;
+  else
+    out <= {out[14:0], shift};
 endmodule
